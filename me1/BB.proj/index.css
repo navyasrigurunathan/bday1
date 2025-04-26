@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #5966dd;
+}
+
+.calendar-container {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.calendar {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar th, .calendar td {
+    padding: 10px;
+    border: 1px solid #8cc9f4;
+    text-align: center;
+}
+
+.calendar th {
+    background: #609cee;
+    color: #141a8b;
+}
+
+/* Heart style */
+.heart {
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    color: #d6336c; /* Soft pink */
+    text-decoration: none;
+}
+
+.heart::before {
+    content: "❤";  /* Bold filled heart */
+    position: absolute;
+    font-size: 28px;
+    font-weight: bold;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(33, 29, 219, 0.8);
+}
