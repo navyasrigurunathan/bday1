@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Company Gallery</title>
+  <link rel="stylesheet" href="photo.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #a1cce4;
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    /* Flip Container */
+    .flip-container {
+      perspective: 1000px;
+      margin-top: 80px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .flipper {
+      position: relative;
+      width: 500px;
+      height: 700px;
+      transform-style: preserve-3d;
+      transition: transform 1s;
+      cursor: pointer;
+    }
+
+    .flip-container.flip .flipper {
+      transform: rotateY(180deg);
+    }
+
+    /* Front (Image) */
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    .front {
+      background: url('img.jpeg') center/cover no-repeat;
+    }
+
+    /* Back (Message Container) */
+    .back {
+      background: white;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .message-box {
+      background: linear-gradient(135deg, #fcd5ce, #f8edeb);
+      padding: 10px 20px;
+      border-radius: 10px;
+      color:#141a8b;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(214, 51, 108, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      width: 80%;
+      text-align: center;
+    }
+
+    .message-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(214, 51, 108, 0.4);
+    }
+
+    /* Music Player */
+    #backgroundMusic, #audioPlayer, #videoPlayer {
+      display: none;
+    }
+
+    #audioPlayer, #videoPlayer {
+      display: block;
+      margin: 20px auto;
+      max-width: 90%;
+    }
+    
+    .next-btn {
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color:#141a8b;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .next-btn:hover {
+            background-color: #2a14f0;
+            transform: scale(1.05);
+        }
+  </style>
+</head>
+
+<body>
+
+  <!-- Flip Card -->
+  <div class="flip-container" id="flipContainer" onclick="flipCard()">
+    <div class="flipper">
+      <div class="front"></div>
+      <div class="back">
+        <div class="message-container">
+            <p>Happiest birthday Gowtham Prasanth eh!!💙🥳😺✨...Eppayume happy ah iru😸....Thanks for being in my life🙏🏻....life long ippadiye naamba best friends ah irukkanum💛🫂💎💙....ennoda life la kidacha gem nee💎....naa romba lucky ah feel panren 🤗....ipadi oru frnd kidaichathuku😌....naa unna neraya hurt panni irukken nu ninaikkuren😐
+              ....ellaathukkum sorry😖🙏🏻.....naa ethavathu thappu panni irundha mannichudu😫.....neraya sanda potu irukken mostly🫠....but naa apadiye pesaama poidanum nu ninaichadhu illa💯...porathukkum manasu varaadhu😣...neeyum vittathu illa🙃...aana naa ethuku kovam vandhu sanda poduren nu ella time um explain pantu dha irukken unaku💯....but enna panrathu
+              unakkum kovam vandhurum😑...apro seri aagiduvom rendu perum👍🏻....vera yaaravathu vandhu nee avanga kooda attach aagiduviyo apadingara bayam dhaa😒...athuvum unakke theriyum🥹...but naa ippadii nee vera yaarkittayum attach aaga koodathunu ninaikurathu thappu dhaan sorry😖😭...ennaya vaichu samaalikurathum kastam dhaan🫠...eppadi daa 
+              ennaya vaichu nee samaalikaranu theriyala🙃..romba paavom daa nee😭💯...eppa paathaalum ethayaavathu ninaichu yosichutte irukkadha🫱🏻‍🫲🏻...   happy ah iru eppayume😻 ....en frnd la rare piece da😫....avana eppayume yaaraalayum replace pannave mudiyaathu❤‍🩹....avana eppayume happy ah pathrama paathuko serii ah🫴🏻...illana avlodha paathuko👿
+              ...once again en thangameyyy happy birthday da best uhhh!!💛🫂💎🤗....enkooda sanda potute irukka ready ahh??🫴🏻...apro innonnu nee pesuratha listen panrathukku always i'm still here💙>>!!..."always nee pesa pesa mattum dhaa en kaayam aarum 🫶🏻"....first la neraya ethavathu pesitte iruppom🤗...ipovum pesittu dha irukkom but munna maathiri 
+              illa yen nu theriyala....oru vela maturity vandhurucho ennamo🫠..romba miss panren🥹..innum neraya sollanum dha but ithula place pathaathu saamy...so pothum...again oru time 
+              Happy Birthday Best uh 🫶🏻💎🤗
+              <br> ithu dha bday gift uh link ah pathrama vaichuko da(01.06.2025)💛
+              <br>To:Gowtham Prasanth
+              <br>By:Navyasri
+    </p>    
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="next-btn">touch the pic⬆️</button>
+  <!-- Hidden Music -->
+  <audio id="backgroundMusic" autoplay loop>
+    <source src="k2.mpeg" type="audio/mp3">
+  </audio>
+
+  <script>
+    function flipCard() {
+      document.getElementById('flipContainer').classList.toggle('flip');
+    }
+
+    function playMedia(fileName) {
+      const audioPlayer = document.getElementById("audioPlayer");
+      const videoPlayer = document.getElementById("videoPlayer");
+
+      if (fileName.endsWith(".mp4")) {
+        audioPlayer.pause();
+        audioPlayer.style.display = "none";
+
+        videoPlayer.src = fileName;
+        videoPlayer.style.display = "block";
+        videoPlayer.load();
+        videoPlayer.play();
+      } else {
+        videoPlayer.pause();
+        videoPlayer.style.display = "none";
+
+        audioPlayer.src = fileName;
+        audioPlayer.style.display = "block";
+        audioPlayer.load();
+        audioPlayer.play();
+      }
+    }
+  </script>
+
+</body>
+</html>
